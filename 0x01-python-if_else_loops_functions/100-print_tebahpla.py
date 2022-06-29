@@ -2,4 +2,4 @@
 for alph in reversed(range(97, 123)):
     if(alph % 2 != 0):
         alph -= 32
-    print(chr(alph), end='')
+    print("{:c}".format(alph), end='')
