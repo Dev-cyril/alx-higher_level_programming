@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-print(number)
 last_digit = (abs(number) % 10)
 print('Last digit of', number, 'is', last_digit, end=' ')
 if last_digit > 5:
