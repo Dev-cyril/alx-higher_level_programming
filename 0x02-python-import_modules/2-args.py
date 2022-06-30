@@ -9,8 +9,8 @@ def args():
     else:
         print('s:')
 
-    for i in range(1, len(argv) + 1):
-        print("{}: {}".format(i, len(argv[i])))
+    for i in argv[1:]:
+        print("{}: {}".format(i, argv[i]))
 
 if __name__ == "__main__":
     args()
