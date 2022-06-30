@@ -3,5 +3,5 @@ if __name__ == "__main__":
     from sys import argv
     sum = 0
     for i in argv[1:]:
-        sum += int(i)
+        sum += int(i + 1)
     print("{:d}".format(sum))
