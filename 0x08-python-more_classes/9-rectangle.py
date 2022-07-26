@@ -8,7 +8,7 @@ class Rectangle:
         __width (int): width of the rectangle
         __height (int): height of the rectangle
     """
-    
+
     def __init__(self, width=0, height=0):
         """Initializes the Rectangle
         Args:
@@ -47,6 +47,7 @@ class Rectangle:
                 raise ValueError("width must be >= 0")
             else:
                 self.__width = value
+
     @property
     def height(self):
         """getter of __height
@@ -107,7 +108,8 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """static method that returns the maximum value between two rectangles' area
+        """static method that returns the maximum value \
+            between two rectangles' area
         Returns:
             rect_1: if rect_ is greater or equal to rect_2
             rect_2: if rect_2 is greater
