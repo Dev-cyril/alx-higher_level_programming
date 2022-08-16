@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""a module for a function that checks for
+    the type of object passed
+"""
+
+
 def is_same_class(obj, a_class):
     """function: is_same_class
     returns:
