@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+"""a module for json to sting"""
+
+
 import json
 
 

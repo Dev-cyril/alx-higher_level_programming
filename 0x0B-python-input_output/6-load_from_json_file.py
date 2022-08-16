@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+"""a module for creating an object from json file"""
+
+
 import json
 
 
