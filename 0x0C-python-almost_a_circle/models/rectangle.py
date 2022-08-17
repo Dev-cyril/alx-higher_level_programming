@@ -3,7 +3,7 @@
 """A class module that inherits from the base file"""
 
 
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
