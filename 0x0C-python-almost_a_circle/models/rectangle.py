@@ -101,9 +101,9 @@ class Rectangle(Base):
 
     def display(self):
         """method that prints a rectangle shape"""
-        print("\n" * self.__y)
-        for i in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
+        print("\n" * self.y, end='')
+        for i in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def update(self, *args, **kwargs):
         """Method that assigns arguments to each attribute"""
