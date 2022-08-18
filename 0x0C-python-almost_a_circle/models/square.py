@@ -32,12 +32,13 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """updates arguments of an attribute"""
         actual = (self.id, self.size, self.x, self.y)
-        if len(args) != 0:
+        if args:
             self.id, self.size, self.x, self.y = \
                 args + actual[len(args):len(actual)]
-        else:
+        elif kwargs:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key in actual:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """dictionary representation of the class"""
