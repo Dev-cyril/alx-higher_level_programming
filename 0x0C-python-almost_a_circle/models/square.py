@@ -31,13 +31,13 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """updates arguments of an attribute"""
-        actual = (self.id, self.size, self.x, self.y)
+        attr = ['id', 'size', 'x', 'y']
         if args:
-            self.id, self.size, self.x, self.y = \
-                args + actual[len(args):len(actual)]
+            for at, numb in zip(attr, args):
+                setattr(self, at, numb)
         elif kwargs:
             for key, value in kwargs.items():
-                if key in actual:
+                if key in attr:
                     setattr(self, key, value)
 
     def to_dictionary(self):
