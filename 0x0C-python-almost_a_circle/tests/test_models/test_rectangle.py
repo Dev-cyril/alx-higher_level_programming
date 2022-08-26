@@ -30,51 +30,45 @@ class TestRectangle(unittest.TestCase):
     def test_width(self):
         """unittest for width instance of rectangle class"""
         self.assertEqual(5, self.r.width)
+    def test_width2(self):
         with self.assertRaises(TypeError):
             Rectangle('5', self.r.width)
-        with self.assertRaises(TypeError):
-            Rectangle(True, self.r.width)
-        with self.assertRaises(TypeError):
-            Rectangle([3], self.r.width)
+    def test_width3(self):
         with self.assertRaises(ValueError):
             Rectangle(-5, self.r.width)
     
     def test_height(self):
         """unittest for height instance of rectangle class"""
         self.assertEqual(10, self.r.height)
+    def test_height2(self):
         with self.assertRaises(TypeError):
             Rectangle('5', self.r.height)
-        with self.assertRaises(TypeError):
-            Rectangle(True, self.r.height)
-        with self.assertRaises(TypeError):
-            Rectangle([3], self.r.height)
+    def test_height3(self):
         with self.assertRaises(ValueError):
             Rectangle(-5, self.r.height)
 
     def test_x(self):
         """unittest for x instance of rectangle class"""
         self.assertEqual(3, self.r1.x)
+    def test_x2(self):
         with self.assertRaises(TypeError):
             Rectangle('5', self.r1.x)
-        with self.assertRaises(TypeError):
-            Rectangle(True, self.r1.x)
-        with self.assertRaises(TypeError):
-            Rectangle([3], self.r1.x)
+    def test_x3(self):
         with self.assertRaises(ValueError):
             Rectangle(-5, self.r1.x)
+    def test_x4(self):
         with self.assertRaises(ValueError):
             Rectangle(0, self.r1.x)
     def test_y(self):
         """unittest for y instance of rectangle class"""
         self.assertEqual(4, self.r1.y)
+    def test_y2(self):
         with self.assertRaises(TypeError):
             Rectangle('4', self.r1.y)
-        with self.assertRaises(TypeError):
-            Rectangle(True, self.r1.y)
-        with self.assertRaises(TypeError):
-            Rectangle([4], self.r1.y)
+    def test_y3(self):
         with self.assertRaises(ValueError):
             Rectangle(-4, self.r1.y)
+    def test_y4(self):
         with self.assertRaises(ValueError):
             Rectangle(0, self.r1.y)
 
@@ -177,12 +171,14 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle.save_to_file(None)
         with open('Rectangle.json', 'r') as f:
             self.assertEqual('[]', f.read())
+    def test_save_to_file2(self):    
         r = Rectangle.save_to_file([])
         with open('Rectangle.json', 'r') as f:
             self.assertEqual('[]', f.read())
+    def test_save_to_file3(self):
         r = Rectangle.save_to_file([Rectangle(1, 6)])
         with open('Rectangle.json', 'r') as f:
-            self.assertEqual('[{"x": 0, "y": 0, "id": 28, "height": 6, "width": 1}]', f.read())
+            self.assertEqual('[{"x": 0, "y": 0, "id": 30, "height": 6, "width": 1}]', f.read())
 
     def test_load_from_file(self):
         """"test for load_from_file method"""

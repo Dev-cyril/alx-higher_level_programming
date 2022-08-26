@@ -30,39 +30,35 @@ class TestSquare(unittest.TestCase):
     def test_size(self):
         """unittest for size instance of Square class"""
         self.assertEqual(5, self.r.size)
+    def test_size2(self):
         with self.assertRaises(TypeError):
             Square('5', self.r.size)
-        with self.assertRaises(TypeError):
-            Square(True, self.r.size)
-        with self.assertRaises(TypeError):
-            Square([3], self.r.size)
+    def test_size3(self):
         with self.assertRaises(ValueError):
             Square(-5, self.r.size)
 
     def test_x(self):
         """unittest for x instance of Square class"""
         self.assertEqual(2, self.r1.x)
+    def test_x1(self):
         with self.assertRaises(TypeError):
             Square('5', self.r1.x)
-        with self.assertRaises(TypeError):
-            Square(True, self.r1.x)
-        with self.assertRaises(TypeError):
-            Square([3], self.r1.x)
+    def test_x2(self):
         with self.assertRaises(ValueError):
             Square(-5, self.r1.x)
+    def test_x3(self):
         with self.assertRaises(ValueError):
             Square(0, self.r1.x)
     def test_y(self):
         """unittest for y instance of Square class"""
         self.assertEqual(3, self.r1.y)
+    def test_y2(self):
         with self.assertRaises(TypeError):
             Square('4', self.r1.y)
-        with self.assertRaises(TypeError):
-            Square(True, self.r1.y)
-        with self.assertRaises(TypeError):
-            Square([4], self.r1.y)
+    def test_y3(self):
         with self.assertRaises(ValueError):
             Square(-4, self.r1.y)
+    def test_y4(self):
         with self.assertRaises(ValueError):
             Square(0, self.r1.y)
 
@@ -178,12 +174,14 @@ class TestSquare(unittest.TestCase):
         r = Square.save_to_file(None)
         with open('Square.json', 'r') as f:
             self.assertEqual('[]', f.read())
+    def test_save_to_file2(self):
         r = Square.save_to_file([])
         with open('Square.json', 'r') as f:
             self.assertEqual('[]', f.read())
+    def test_save_to_file3(self):
         r = Square.save_to_file([Square(1)])
         with open('Square.json', 'r') as f:
-            self.assertEqual('[{"id": 65, "x": 0, "size": 1, "y": 0}]', f.read())
+            self.assertEqual('[{"id": 71, "x": 0, "size": 1, "y": 0}]', f.read())
 
     def test_load_from_file(self):
         """"test for load_from_file method"""
