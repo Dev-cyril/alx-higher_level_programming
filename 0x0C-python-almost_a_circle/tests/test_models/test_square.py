@@ -183,7 +183,7 @@ class TestSquare(unittest.TestCase):
             self.assertEqual('[]', f.read())
         r = Square.save_to_file([Square(1)])
         with open('Square.json', 'r') as f:
-            self.assertEqual('[{"id": 18, "x": 0, "size": 1, "y": 0}]', f.read())
+            self.assertEqual('[{"id": 65, "x": 0, "size": 1, "y": 0}]', f.read())
 
     def test_load_from_file(self):
         """"test for load_from_file method"""
