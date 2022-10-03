@@ -1,4 +1,8 @@
 #!/usr/bin/node
 process.argv.sort();
 process.argv.reverse();
-console.log((process.argv.length > 3) ? process.argv[1] : 0);
+const arr = [];
+for (const i in process.argv) {
+  arr.push(parseInt(process.argv[i]));
+}
+console.log((arr.length > 3) ? arr[1] : 0);
