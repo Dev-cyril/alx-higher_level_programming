@@ -2,5 +2,5 @@
 
 const arr = require('./100-data').list;
 console.log(arr);
-const newList = list.map((x, index) => x * index);
+const newList = arr.map((x, index) => x * index);
 console.log(newList);
