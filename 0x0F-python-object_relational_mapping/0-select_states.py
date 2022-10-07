@@ -7,8 +7,10 @@ import MySQLdb
 
 
 if __name__ == '__main__':
-    dataBaseConnect = MySQLdb.connect(host='localhost', port=3306, user=argv[1], 
-                                      passwd=argv[2], db=argv[3], charset='utf8')
+    dataBaseConnect = MySQLdb.connect(host='localhost',
+                                      port=3306, user=argv[1],
+                                      passwd=argv[2], db=argv[3],
+                                      charset='utf8')
     data = dataBaseConnect.cursor()
     data.execute("SELECT * FROM states ORDER BY id ASC")
     dataTable = data.fetchall()
@@ -16,4 +18,3 @@ if __name__ == '__main__':
         print(eachRow)
     data.close()
     dataBaseConnect.close()
-
