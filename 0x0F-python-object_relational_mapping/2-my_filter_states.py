@@ -17,7 +17,7 @@ if __name__ == '__main__':
     data.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
                  .format(argv[4]))
     dataTable = data.fetchall()
-    for eachRow in data:
+    for eachRow in dataTable:
         print(eachRow)
     data.close()
     dataBaseConnect.close()

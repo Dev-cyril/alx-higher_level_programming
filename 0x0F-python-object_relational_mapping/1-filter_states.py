@@ -16,7 +16,7 @@ if __name__ == '__main__':
     data = dataBaseConnect.cursor()
     data.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     dataTable = data.fetchall()
-    for eachRow in data:
+    for eachRow in dataTable:
         print(eachRow)
     data.close()
     dataBaseConnect.close()
