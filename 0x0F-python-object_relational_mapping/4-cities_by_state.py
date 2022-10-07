@@ -15,8 +15,7 @@ if __name__ == '__main__':
                                       charset='utf8')
     data = dataBaseConnect.cursor()
     data.execute("SELECT cities.id, cities.name, states.name FROM states \
-                 JOIN cities ON states_id = states.id ORDER BY cities.id ASC"
-                 .format(argv[4]))
+                 JOIN cities ON state_id = states.id ORDER BY cities.id ASC")
     dataTable = data.fetchall()
     for eachRow in dataTable:
         print(eachRow)
