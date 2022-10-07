@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module that list all data in `state` table in `hbtn_0e_0_usa` database
     where name equals a search keyword from the CLI
+    and prevents SQL injections
 """
 
 
@@ -14,7 +15,7 @@ if __name__ == '__main__':
                                       passwd=argv[2], db=argv[3],
                                       charset='utf8')
     data = dataBaseConnect.cursor()
-    data.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
+    data.execute("SELECT * FROM states WHERE name = '%{}%' ORDER BY id ASC"
                  .format(argv[4]))
     dataTable = data.fetchall()
     for eachRow in data:
