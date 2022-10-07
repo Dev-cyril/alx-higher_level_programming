@@ -11,8 +11,8 @@ The biggest difference is: no more SQL queries! Indeed, the purpose of an ORM is
 ## Requirements
 - install MySQL on Ubuntu 20.04 using the command `sudo apt install mysql-server`
 - install MySQLdb in the following procedure
-`sudo apt-get install python3-dev
-sudo apt-get install libmysqlclient-dev
-sudo apt-get install zlib1g-dev
+`sudo apt-get install python3-dev \n
+sudo apt-get install libmysqlclient-dev \n
+sudo apt-get install zlib1g-dev \n
 sudo pip3 install mysqlclient`
 - install SQLAlchemy `sudo pip3 install SQLAlchemy`
