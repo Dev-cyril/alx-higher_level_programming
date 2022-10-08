@@ -16,7 +16,7 @@ if __name__ == '__main__':
     data = dataBaseConnect.cursor()
     data.execute("SELECT name FROM cities WHERE state_id = \
                 (SELECT id FROM states WHERE name = {}) ORDER BY id ASC"
-                .format(argv[4]))
+                 .format(argv[4]))
     dataTable = data.fetchall()
     for eachRow in dataTable:
         print(eachRow)

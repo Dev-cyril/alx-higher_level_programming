@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" a python file that contains the class definition of a City and 
+""" a python file that contains the class definition of a City and
     an instance Base = declarative_base()
 """
 
