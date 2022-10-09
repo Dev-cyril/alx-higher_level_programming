@@ -17,6 +17,7 @@ if __name__ == '__main__':
     data.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     dataTable = data.fetchall()
     for eachRow in dataTable:
-        print(eachRow)
+        if eachRow[1][0] == 'N':
+            print(eachRow)
     data.close()
     dataBaseConnect.close()
