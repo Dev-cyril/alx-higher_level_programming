@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     new_state = State(name='Louisiana')
     session.add(new_state)
-    for state in session.query(State).filter_by(name='Louisiana').first():
+    for state in session.query(State).filter(State.name == 'Louisiana').first():
         print(state.id)
 
     session.commit()
