@@ -18,7 +18,7 @@ if __name__ == '__main__':
                  .format(argv[4]))
     dataTable = data.fetchall()
     for eachRow in dataTable:
-        if row[1] == sys.argv[4]:
+        if eachRow[1] == sys.argv[4]:
             print(eachRow)
     data.close()
     dataBaseConnect.close()
