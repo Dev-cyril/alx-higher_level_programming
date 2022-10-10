@@ -15,8 +15,8 @@ if __name__ == '__main__':
                                       charset='utf8')
     data = dataBaseConnect.cursor()
     data.execute("SELECT cities.name FROM cities WHERE cities.state_id = \
-                (SELECT state.id FROM states WHERE states.name = '{}') \
-                ORDER BY cities.id ASC".format(argv[4]))
+                (SELECT state.id FROM states WHERE states.name = '{}' \
+                 LIMIT 1) ORDER BY cities.id ASC".format(argv[4]))
     dataTable = data.fetchall()
     newData = []
     for eachRow in dataTable:
