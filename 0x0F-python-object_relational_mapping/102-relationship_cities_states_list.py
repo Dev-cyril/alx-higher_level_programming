@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-lists all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa
+lists all City objects from the database hbtn_0e_101_usa
 """
 
 from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import sys
@@ -18,9 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).all()
-    for state in result:
-        print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+    result = session.query(City).all()
+    for city in result:
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
     session.close()
