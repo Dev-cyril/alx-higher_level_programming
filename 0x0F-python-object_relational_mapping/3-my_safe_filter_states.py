@@ -16,7 +16,7 @@ if __name__ == '__main__':
                                       charset='utf8')
     data = dataBaseConnect.cursor()
     data.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
-                   (argv[4],))
+                 (argv[4],))
     dataTable = data.fetchall()
     for eachRow in dataTable:
         print(eachRow)

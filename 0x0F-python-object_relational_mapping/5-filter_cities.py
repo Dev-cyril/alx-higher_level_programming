@@ -14,10 +14,13 @@ if __name__ == '__main__':
                                       passwd=argv[2], db=argv[3],
                                       charset='utf8')
     data = dataBaseConnect.cursor()
-    data.execute("SELECT cities.name FROM cities \
-    JOIN states ON cities.state_id = states.id WHERE states.name LIKE %s \
-    ORDER BY cities.id ASC", (sys.argv[4],))
-    rows = data.fetchall()
-    print(", ".join(city[0] for city in rows))
+    data.execute("SELECT cities.name FROM cities WHERE cities.state_id = \
+                (SELECT state.id FROM states WHERE states.name = '{}') \
+                ORDER BY cities.id ASC".format(argv[4]))
+    dataTable = data.fetchall()
+    newData = []
+    for eachRow in dataTable:
+        newData.append(eachRow[0])
+    print(", ".join(newData))
     data.close()
     dataBaseConnect.close()
