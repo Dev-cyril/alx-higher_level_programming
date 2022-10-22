@@ -13,7 +13,7 @@ if __name__ == "__main__":
     val = {'q': letter}
     url = argv[1]
 
-    req = requests.get(url, data=val)
+    req = requests.post(url, data=val)
     try:
         response = req.json()
         if response == {}:
