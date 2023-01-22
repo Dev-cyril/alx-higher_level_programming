@@ -1,30 +1,17 @@
 #!/usr/bin/node
-
 const request = require('request');
-let characters;
-const dict = {};
-request.get('http://swapi.co/api/films/' + process.argv[2], function (err, res, body) {
-  if (res.statusCode === 200) {
-    characters = JSON.parse(body).characters;
-    for (const url of characters) {
-      request.get(url, function (err1, res1, body1) {
-        if (res1.statusCode === 200) {
-          savedData(url, JSON.parse(body1).name);
-        } else if (err1) {
-          console.log(err1);
-        }
+if (process.argv.length > 2) {
+  request(`https://swapi-api.hbtn.io/api/films/${process.argv[2]}`, (err, res, body) => {
+    if (err) console.log(err);
+    // for (let i = 0; i < JSON.parse(body).characters.length; i++) {
+    const names = JSON.parse(body).characters.map(item => new Promise((resolve, reject) => {
+      request(item, (err, res, body) => {
+        if (err) console.log(err);
+        resolve(JSON.parse(body).name);
       });
-    }
-  } else if (err) {
-    console.log(err);
-  }
-});
-
-function savedData (url, name) {
-  dict[url] = name;
-  if (Object.entries(dict).length === characters.length) {
-    for (const url of characters) {
-      console.log(dict[url]);
-    }
-  }
+    }));
+    Promise.all(names)
+      .then(item => console.log(item.join('\n')))
+      .catch(err => console.log(err));
+  });
 }
